@@ -1,7 +1,18 @@
 .title {
-  font-size: 40px;
-  font-weight: bold;
-  text-align: center;
+    width: 700px;
+    background-color: #558cdd;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    border: 1px solid #777f8b;
+    text-shadow: 0 0 15px #b8b9db;
+    font-weight: 500;
+    font-size: 45px;
+    box-shadow: 0 0 29px #064e4e;
+    color: #16064e; 
+    text-align: center;
+    border-radius: 20px;
 }
 .contactTitle {
   font-size: 30px;

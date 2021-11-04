@@ -8,13 +8,11 @@ import s from './App.module.css';
 
 function App() {
   const [contacts, setContacts] = useState(() => {
-    return JSON.parse(localStorage.getItem('contacts')) ?? initialContacts;
+    return JSON.parse(
+      window.localStorage.getItem('contacts') ?? initialContacts,
+    );
   });
   const [filter, setFilter] = useState('');
-
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   const formSubmitHandler = data => {
     const comparableElement = contacts.some(
@@ -41,6 +39,10 @@ function App() {
   const deleteContact = contactId => {
     setContacts(contacts.filter(contact => contact.id !== contactId));
   };
+
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   return (
     <Container>

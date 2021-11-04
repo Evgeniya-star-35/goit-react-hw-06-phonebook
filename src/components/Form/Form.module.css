@@ -6,8 +6,8 @@
   width: 400px;
   height: 250px;
   padding: 20px;
-  border: 5px solid #000000;
-  border-radius: 5px;
+  border: 5px solid #558cdd;
+  border-radius: 20px;
   margin: 40px auto;
 }
 
@@ -20,23 +20,32 @@
 
 .input {
   display: block;
-  margin-top: 20px;
+  width: 170px;
+  height: 30px;
+  margin-top: 15px;
   margin-bottom: 20px;
+  border-radius: 20px;
 }
 
 .button {
-  display: flex;
-  justify-content: center;
-  padding: 3px;
-  width: 150px;
-  height: 30px;
+  height: 40px;
+  margin: auto;
+  background: linear-gradient(
+90deg,#a188fc 0,#2eeade 50%,#a188fc);
+  background-size: 200%;
+  background-position: 100%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: inline-block;
+  box-shadow: 0 0 20px #299;
+  text-shadow: 0 0 5px #000;
+  transition: all .7s;
+  border: 1px solid #777f8b;
   cursor: pointer;
-  border: 2px solid rgb(195, 232, 243);
-  border-radius: 5px;
 }
 .button:hover,
 .button:focus {
-  background-color: rgb(153, 218, 238);
+  background-color: rgb(149, 219, 240);
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
 }
 .btnText {
