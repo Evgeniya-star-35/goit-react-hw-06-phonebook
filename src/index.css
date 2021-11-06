@@ -12,6 +12,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://thumbs.dreamstime.com/b/smartphone-list-contacts-chatting-friends-colleagues-invite-social-networks-sending-messages-dat-dating-flat-171655995.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* background-size: 100% 100%; */
 }
 
 code {

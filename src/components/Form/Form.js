@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { useDispatch, useSelector } from 'react-redux';
+// import { v4 as uuidv4 } from 'uuid';
+// import { connect } from 'react-redux';
+import { getContacts } from '../../redux/Phonebook/phonebook-selectors';
+import actions from '../../redux/Phonebook/phonebook-actions';
 import s from './Form.module.css';
-import PropTypes from 'prop-types'; // ES6
+import PropTypes from 'prop-types';
 
-export default function Form({ onSubmit }) {
+export default function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const contacts = useSelector(getContacts);
+  // console.log(contacts);
+  const dispatch = useDispatch();
 
   const handleInputChange = e => {
     const { name, value } = e.target;
@@ -21,20 +28,19 @@ export default function Form({ onSubmit }) {
     }
   };
 
-  // const handlerInputChange = e => {
-  //   setNumber(e.target.value);
-  // };
-
   const handleSubmit = e => {
     e.preventDefault();
-    const contact = {
-      id: uuidv4(),
-      name,
-      number,
-    };
-    onSubmit(contact);
+    const comparableElement = contacts.some(
+      element => element.name.toLowerCase() === name.toLowerCase(),
+    );
+    if (comparableElement) {
+      reset();
+      return alert('contact is already in the directory');
+    }
+    dispatch(actions.addContact({ name, number }));
     reset();
   };
+
   const reset = () => {
     setName('');
     setNumber('');
@@ -75,6 +81,6 @@ export default function Form({ onSubmit }) {
   );
 }
 
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// Form.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };

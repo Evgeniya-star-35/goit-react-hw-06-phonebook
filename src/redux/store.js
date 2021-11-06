@@ -1,11 +1,8 @@
-import { createStore } from 'redux';
-import { combineReducers } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import phonebookReducer from './Phonebook/PhonebookReduser';
-
-const rootReducer = combineReducers({
-  phonebook: phonebookReducer,
+//хранилище до toolkit
+import { configureStore } from '@reduxjs/toolkit';
+import phonebookReducer from './Phonebook/phonebook-reduser';
+const store = configureStore({
+  reducer: { phonebook: phonebookReducer },
 });
-const store = createStore(rootReducer, composeWithDevTools());
-
+// console.log(store.getState());
 export default store;
