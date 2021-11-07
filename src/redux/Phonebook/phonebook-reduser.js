@@ -30,16 +30,11 @@ import initialContacts from '../../contacts.json';
 //       return state;
 //   }
 // };
+
 //reduxjs/Toolkit
 
-const contactsState =
-  JSON.parse(localStorage.getItem('contacts')) ?? initialContacts;
-
-const contacts = createReducer(contactsState, {
-  [actions.addContact]: (state, { payload }) =>
-    state.some(({ name }) => name.toLowerCase() === payload.name.toLowerCase())
-      ? alert(`${payload.name} is already in the directory.`)
-      : [...state, payload],
+const items = createReducer(initialContacts, {
+  [actions.addContact]: (state, { payload }) => [...state, payload],
   [actions.deleteContact]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
@@ -48,5 +43,4 @@ const filter = createReducer('', {
   [actions.changeFilter]: (_, { payload }) => payload,
 });
 
-const phonebookReducer = combineReducers({ contacts, filter });
-export default phonebookReducer;
+export default combineReducers({ items, filter });

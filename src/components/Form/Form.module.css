@@ -22,14 +22,19 @@
   display: block;
   width: 170px;
   height: 30px;
+  padding-left: 10px;
   margin-top: 15px;
   margin-bottom: 20px;
   border-radius: 20px;
 }
-
+.input:focus{
+  border: 3px solid #558cdd;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
 .button {
   height: 40px;
-  margin: auto;
+  margin-top: 1px;
   background: linear-gradient(
 90deg,#a188fc 0,#2eeade 50%,#a188fc);
   background-size: 200%;

@@ -1,5 +1,5 @@
 // import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 import Contact from '../Contact';
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,9 +10,6 @@ import s from './ContactsList.module.css';
 export default function ContactsList() {
   const contacts = useSelector(getFiltredContacts);
   const dispatch = useDispatch();
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   return (
     <ul>

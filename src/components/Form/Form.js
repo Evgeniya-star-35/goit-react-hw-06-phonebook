@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { v4 as uuidv4 } from 'uuid';
-// import { connect } from 'react-redux';
 import { getContacts } from '../../redux/Phonebook/phonebook-selectors';
 import actions from '../../redux/Phonebook/phonebook-actions';
 import s from './Form.module.css';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(getContacts);
-  // console.log(contacts);
   const dispatch = useDispatch();
 
   const handleInputChange = e => {
@@ -35,7 +32,7 @@ export default function Form() {
     );
     if (comparableElement) {
       reset();
-      return alert('contact is already in the directory');
+      return alert(`${name} is already in the directory`);
     }
     dispatch(actions.addContact({ name, number }));
     reset();
