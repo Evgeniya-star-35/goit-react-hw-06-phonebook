@@ -48,4 +48,4 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-console.log(persistor);
+// console.log(persistor);

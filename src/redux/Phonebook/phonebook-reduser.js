@@ -33,7 +33,7 @@ import initialContacts from '../../contacts.json';
 
 //reduxjs/Toolkit
 
-const items = createReducer(initialContacts, {
+const contactItems = createReducer(initialContacts, {
   [actions.addContact]: (state, { payload }) => [...state, payload],
   [actions.deleteContact]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
@@ -43,4 +43,4 @@ const filter = createReducer('', {
   [actions.changeFilter]: (_, { payload }) => payload,
 });
 
-export default combineReducers({ items, filter });
+export default combineReducers({ contactItems, filter });
